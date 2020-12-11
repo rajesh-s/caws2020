@@ -17,8 +17,8 @@ PS: You should use Linux based OS. We will not entertain any query related to th
 
 ## My notes
 
-- no.l1i_pref basically means no l1 instruction prefetcher
-  - The build script turns *_pref files into C++. You can edit ```{myname}_pref``` file with own algo. The build command takes ```myname``` as input to pick the right _pref file and replace it
+- The build script turns *_pref files into C++. Can edit myname_pref file with own algo. The build command takes myname as input to pick the right _pref file and replace it. no.l1i_pref basically means no l1 instruction prefetcher
+
 
 ## Debug
 
@@ -55,7 +55,39 @@ PS: You should use Linux based OS. We will not entertain any query related to th
 
 == Compiled again with fix3 ==
 
-4. Bug4
+4. Bug4: Stray variable remove_this_var declared in multiple files that all contain separated (for ease of configuration) function definitions outside the CACHE class. The Makefile picks all 4 generated (from *pref) cc files (eg:llc_prefetcher.cc) for compilation, creating redundant definitions
    - Error message:
      - ChampSim-CAWS/prefetcher/llc_prefetcher.cc:2: multiple definition of `remove_this_var'; obj/prefetcher/l2c_prefetcher.o:ChampSim-CAWS/prefetcher/l2c_prefetcher.cc:2: first defined here
-   - 
+   - Fix
+     - The *pref file contains functions defined outside the CACHE class. The build script copies *pref files to *.cc to pick the right configuration.
+     - Removing the variable declaration from the 3 files no.l1d_pref, no.l1i_pref, no.l2c_pref resolves the error in build. Removed it from the 4th file (no.llc_pref) as well since this variable is not used anywhere
+
+== Build clean! ==
+
+## Trace generation
+
+You can first test your pin installation by 
+
+```bash
+wget https://software.intel.com/sites/landingpage/pintool/downloads/pin-3.17-98314-g0c048d619-gcc-linux.tar.gz
+tar -xzvf pin-3.17-98314-g0c048d619-gcc-linux.tar.gz
+cd pin-3.17-98314-g0c048d619-gcc-linux/source/tools/ManualExamples
+make
+cd ../../../
+./pin -t source/tools/ManualExamples/obj-intel64/inscount0.so -- ls # Testing with LS command
+```
+
+ChampSim tracer
+
+```
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -o hello.trace -- ./hello
+xz hello_world.trace
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 10 hello_world.trace.xz
+```
+
+- https://stackoverflow.com/questions/55698095/intel-pin-tools-32-bit-processsectionheaders-560-assertion-failed
+- https://stackoverflow.com/questions/43589174/pin-tool-segmentation-fault-for-ubuntu-17-04
+- https://github.com/ChampSim/ChampSim/issues/102
+- https://software.intel.com/sites/landingpage/pintool/docs/81205/Pin/html/
+
+CPU 0 cumulative IPC: 1.12466 (PIN 3.17, Ubuntu 20.04.1LTS)
