@@ -1,0 +1,2497 @@
+Script started on 2020-12-11 08:33:09-08:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="203" LINES="49"]
+rajesh@ubuntu:~/work/CAWS/fixes/ChampSim-CAWS$ ./build_champsim.sh bimodal no no no no lru 1
+Building single-core ChampSim...
+
+rm -f -r obj
+Generating dependencies for src/block.cc...
+Compiling src/block.cc...
+Generating dependencies for src/dram_controller.cc...
+Compiling src/dram_controller.cc...
+Generating dependencies for src/cache.cc...
+Compiling src/cache.cc...
+src/cache.cc: In member function ‘void CACHE::handle_fill()’:
+src/cache.cc:129:4: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  129 |    if (cache_type == IS_L1I)
+      |    ^~
+src/cache.cc:131:6: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  131 |      if (cache_type == IS_L1D)
+      |      ^~
+src/cache.cc: In member function ‘void CACHE::handle_writeback()’:
+src/cache.cc:459:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  459 |     if (cache_type == IS_L1I)
+      |     ^~
+src/cache.cc:461:21: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  461 | 		    if (cache_type == IS_L1D)
+      | 		    ^~
+src/cache.cc: In member function ‘void CACHE::handle_read()’:
+src/cache.cc:530:7: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  530 |       if (read_cpu == NUM_CPUS)
+      |       ^~
+src/cache.cc:534:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  534 | 	if ((RQ.entry[RQ.head].event_cycle <= current_core_cycle[read_cpu]) && (RQ.occupancy > 0)) {
+      | 	^~
+src/cache.cc: In member function ‘void CACHE::handle_prefetch()’:
+src/cache.cc:833:7: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  833 |       if (prefetch_cpu == NUM_CPUS)
+      |       ^~
+src/cache.cc:837:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  837 | 	if ((PQ.entry[PQ.head].event_cycle <= current_core_cycle[prefetch_cpu]) && (PQ.occupancy > 0)) {
+      | 	^~
+Generating dependencies for src/uncore.cc...
+Compiling src/uncore.cc...
+Generating dependencies for src/ooo_cpu.cc...
+Compiling src/ooo_cpu.cc...
+src/ooo_cpu.cc: In member function ‘void O3_CPU::add_load_queue(uint32_t, uint32_t)’:
+src/ooo_cpu.cc:1240:17: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+ 1240 | 		if (LQ.entry[lq_index].producer_id != UINT64_MAX)
+      | 		^~
+src/ooo_cpu.cc:1243:21: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+ 1243 | 		    mem_RAW_dependency(i, rob_index, data_index, lq_index);
+      | 		    ^~~~~~~~~~~~~~~~~~
+src/ooo_cpu.cc:1248:17: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+ 1248 | 		if (LQ.entry[lq_index].producer_id != UINT64_MAX)
+      | 		^~
+src/ooo_cpu.cc:1251:21: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+ 1251 | 		    mem_RAW_dependency(i, rob_index, data_index, lq_index);
+      | 		    ^~~~~~~~~~~~~~~~~~
+src/ooo_cpu.cc:1254:17: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+ 1254 | 		if (LQ.entry[lq_index].producer_id != UINT64_MAX)
+      | 		^~
+src/ooo_cpu.cc:1257:21: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+ 1257 | 		    mem_RAW_dependency(i, rob_index, data_index, lq_index);
+      | 		    ^~~~~~~~~~~~~~~~~~
+src/ooo_cpu.cc: In member function ‘void O3_CPU::complete_instr_fetch(PACKET_QUEUE*, uint8_t)’:
+src/ooo_cpu.cc:1858:11: warning: unused variable ‘instruction_physical_address’ [-Wunused-variable]
+ 1858 |  uint64_t instruction_physical_address = (queue->entry[index].instruction_pa << LOG2_PAGE_SIZE) | (complete_ip & ((1 << LOG2_PAGE_SIZE) - 1));
+      | 	  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Generating dependencies for src/main.cc...
+Compiling src/main.cc...
+In file included from /usr/include/getopt.h:24,
+		 from src/main.cc:3:
+/usr/include/features.h:187:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+  187 | # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+      |   ^~~~~~~
+src/main.cc: In function ‘uint64_t va_to_pa(uint32_t, uint64_t, uint64_t, uint64_t, uint8_t)’:
+src/main.cc:330:12: error: no match for ‘operator==’ (operand types are ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} and ‘<unresolved overloaded function type>’)
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 	~~ ^~ ~~~~~~~~~~~~~~
+      | 	|		 |
+      | 	|		 <unresolved overloaded function type>
+      | 	std::map<long unsigned int, long unsigned int>::iterator {aka std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >}
+In file included from /usr/include/c++/9/iosfwd:40,
+		 from /usr/include/c++/9/ios:38,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/postypes.h:222:5: note: candidate: ‘template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)’
+  222 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/postypes.h:222:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::fpos<_StateT>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:64,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_pair.h:448:5: note: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)’
+  448 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_pair.h:448:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::pair<_T1, _T2>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:325:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)’
+  325 |     operator==(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:325:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::reverse_iterator<_Iterator>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:363:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)’
+  363 |     operator==(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:363:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::reverse_iterator<_Iterator>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:1139:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)’
+ 1139 |     operator==(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:1139:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::move_iterator<_IteratorL>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:1145:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)’
+ 1145 |     operator==(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:1145:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::move_iterator<_IteratorL>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/allocator.h:168:5: note: candidate: ‘template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)’
+  168 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/allocator.h:168:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::allocator<_CharT>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6141:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6141 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6141:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6149:5: note: candidate: ‘template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::__cxx11::basic_string<_CharT>&, const std::__cxx11::basic_string<_CharT>&)’
+ 6149 |     operator==(const basic_string<_CharT>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6149:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6163:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6163 |     operator==(const _CharT* __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6163:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   mismatched types ‘const _CharT*’ and ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6175:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)’
+ 6175 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6175:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/ios_base.h:46,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/system_error:292:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_code&)’
+  292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:292:32: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_code&’
+  292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:297:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_condition&)’
+  297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:297:32: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_code&’
+  297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:304:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_code&)’
+  304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:304:37: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_condition&’
+  304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:311:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_condition&)’
+  311 |   operator==(const error_condition& __lhs,
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:311:37: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_condition&’
+  311 |   operator==(const error_condition& __lhs,
+      | 	     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /usr/include/c++/9/bits/locale_facets.h:48,
+		 from /usr/include/c++/9/bits/basic_ios.h:37,
+		 from /usr/include/c++/9/ios:44,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/streambuf_iterator.h:208:5: note: candidate: ‘template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)’
+  208 |     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/streambuf_iterator.h:208:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:286:5: note: candidate: ‘template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)’
+  286 |     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:286:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:293:5: note: candidate: ‘template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)’
+  293 |     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:293:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:2312:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)’
+ 2312 |     operator==(const deque<_Tp, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:2312:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::deque<_Tp, _Alloc>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/vector:67,
+		 from /usr/include/c++/9/queue:61,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_vector.h:1888:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)’
+ 1888 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_vector.h:1888:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::vector<_Tp, _Alloc>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/queue:64,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_queue.h:338:5: note: candidate: ‘template<class _Tp, class _Seq> bool std::operator==(const std::queue<_Tp, _Seq>&, const std::queue<_Tp, _Seq>&)’
+  338 |     operator==(const queue<_Tp, _Seq>& __x, const queue<_Tp, _Seq>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_queue.h:338:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::queue<_Tp, _Seq>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/tuple:39,
+		 from /usr/include/c++/9/bits/stl_map.h:63,
+		 from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/array:252:5: note: candidate: ‘template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)’
+  252 |     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+      |     ^~~~~~~~
+/usr/include/c++/9/array:252:5: note:	template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::array<_Tp, _Nm>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_map.h:63,
+		 from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/tuple:1419:5: note: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Tps ...>&, const std::tuple<_Args2 ...>&)’
+ 1419 |     operator==(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/usr/include/c++/9/tuple:1419:5: note:	 template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::tuple<_Tps ...>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_map.h:1455:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)’
+ 1455 |     operator==(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:1455:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::map<_Key, _Tp, _Compare, _Alloc>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/map:62,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_multimap.h:1119:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)’
+ 1119 |     operator==(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_multimap.h:1119:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/random:51,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.tcc:1884:5: note: candidate: ‘template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)’
+ 1884 |     operator==(const std::normal_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.tcc:1884:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::normal_distribution<_RealType>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:715:5: note: candidate: ‘template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)’
+  715 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:715:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:721:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)’
+  721 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:721:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:726:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)’
+  726 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:726:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘std::map<long unsigned int, long unsigned int>::const_iterator (std::map<long unsigned int, long unsigned int>::*)() const noexcept’ {aka ‘std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)() const’}
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+src/main.cc:330:26: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘std::map<long unsigned int, long unsigned int>::iterator (std::map<long unsigned int, long unsigned int>::*)() noexcept’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)()’}
+src/main.cc:330:26: note:   couldn’t deduce template parameter ‘_Tp’
+In file included from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/allocator.h:156:7: note: candidate: ‘bool std::operator==(const std::allocator<std::pair<const long unsigned int, long unsigned int> >&, const std::allocator<std::pair<const long unsigned int, long unsigned int> >&)’
+  156 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/allocator.h:156:18: note:   no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::allocator<std::pair<const long unsigned int, long unsigned int> >&’
+  156 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      | 		 ^~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:886:5: note: candidate: ‘template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)’
+  886 |     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:886:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:893:5: note: candidate: ‘template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)’
+  893 |     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:893:5: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+In file included from /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33,
+		 from /usr/include/c++/9/bits/allocator.h:46,
+		 from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/ext/new_allocator.h:167:2: note: candidate: ‘template<class _Up> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<std::pair<const long unsigned int, long unsigned int> >&, const __gnu_cxx::new_allocator<_Tp>&)’
+  167 |  operator==(const new_allocator&, const new_allocator<_Up>&)
+      |  ^~~~~~~~
+/usr/include/c++/9/ext/new_allocator.h:167:2: note:   template argument deduction/substitution failed:
+src/main.cc:330:26: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘std::map<long unsigned int, long unsigned int>::const_iterator (std::map<long unsigned int, long unsigned int>::*)() const noexcept’ {aka ‘std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)() const’}
+  330 |     if (pr == page_table.end) { // no VA => PA translation found
+      | 			 ^~~
+src/main.cc:330:26: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘std::map<long unsigned int, long unsigned int>::iterator (std::map<long unsigned int, long unsigned int>::*)() noexcept’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)()’}
+src/main.cc:330:26: note:   couldn’t deduce template parameter ‘_Up’
+In file included from /usr/include/c++/9/map:60,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_tree.h:394:7: note: candidate: ‘bool std::operator==(const _Self&, const _Self&)’
+  394 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_tree.h:394:49: note:   no known conversion for argument 2 from ‘<unresolved overloaded function type>’ to ‘const _Self&’ {aka ‘const std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> >&’}
+  394 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      | 				   ~~~~~~~~~~~~~^~~
+/usr/include/c++/9/bits/stl_tree.h:315:7: note: candidate: ‘bool std::operator==(const _Self&, const _Self&)’
+  315 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_tree.h:315:49: note:   no known conversion for argument 2 from ‘<unresolved overloaded function type>’ to ‘const _Self&’ {aka ‘const std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >&’}
+  315 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      | 				   ~~~~~~~~~~~~~^~~
+src/main.cc:339:34: error: no match for ‘operator=’ (operand types are ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} and ‘<unresolved overloaded function type>’)
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 				 ^~~~~
+In file included from /usr/include/c++/9/map:60,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_tree.h:256:12: note: candidate: ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >& std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >::operator=(const std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >&)’
+  256 |     struct _Rb_tree_iterator
+      | 	   ^~~~~~~~~~~~~~~~~
+/usr/include/c++/9/bits/stl_tree.h:256:12: note:   no known conversion for argument 1 from ‘<unresolved overloaded function type>’ to ‘const std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >&’
+/usr/include/c++/9/bits/stl_tree.h:256:12: note: candidate: ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >& std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >::operator=(std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >&&)’
+/usr/include/c++/9/bits/stl_tree.h:256:12: note:   no known conversion for argument 1 from ‘<unresolved overloaded function type>’ to ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >&&’
+src/main.cc:339:44: error: no match for ‘operator!=’ (operand types are ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} and ‘<unresolved overloaded function type>’)
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 					~~ ^~ ~~~~~~~~~~~~~~
+      | 					|		 |
+      | 					|		 <unresolved overloaded function type>
+      | 					std::map<long unsigned int, long unsigned int>::iterator {aka std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >}
+In file included from /usr/include/c++/9/iosfwd:40,
+		 from /usr/include/c++/9/ios:38,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/postypes.h:227:5: note: candidate: ‘template<class _StateT> bool std::operator!=(const std::fpos<_StateT>&, const std::fpos<_StateT>&)’
+  227 |     operator!=(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/postypes.h:227:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::fpos<_StateT>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:64,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_pair.h:461:5: note: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator!=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)’
+  461 |     operator!=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_pair.h:461:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::pair<_T1, _T2>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:337:5: note: candidate: ‘template<class _Iterator> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)’
+  337 |     operator!=(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:337:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::reverse_iterator<_Iterator>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:375:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)’
+  375 |     operator!=(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:375:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::reverse_iterator<_Iterator>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:1151:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)’
+ 1151 |     operator!=(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:1151:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::move_iterator<_IteratorL>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:1157:5: note: candidate: ‘template<class _Iterator> bool std::operator!=(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)’
+ 1157 |     operator!=(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:1157:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::move_iterator<_IteratorL>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/allocator.h:174:5: note: candidate: ‘template<class _T1, class _T2> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_T2>&)’
+  174 |     operator!=(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/allocator.h:174:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::allocator<_CharT>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6188:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6188 |     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6188:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6201:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6201 |     operator!=(const _CharT* __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6201:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   mismatched types ‘const _CharT*’ and ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6213:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)’
+ 6213 |     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6213:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/ios_base.h:46,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/system_error:319:3: note: candidate: ‘bool std::operator!=(const std::error_code&, const std::error_code&)’
+  319 |   operator!=(const error_code& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:319:32: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_code&’
+  319 |   operator!=(const error_code& __lhs, const error_code& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:323:3: note: candidate: ‘bool std::operator!=(const std::error_code&, const std::error_condition&)’
+  323 |   operator!=(const error_code& __lhs, const error_condition& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:323:32: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_code&’
+  323 |   operator!=(const error_code& __lhs, const error_condition& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:327:3: note: candidate: ‘bool std::operator!=(const std::error_condition&, const std::error_code&)’
+  327 |   operator!=(const error_condition& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:327:37: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_condition&’
+  327 |   operator!=(const error_condition& __lhs, const error_code& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:331:3: note: candidate: ‘bool std::operator!=(const std::error_condition&, const std::error_condition&)’
+  331 |   operator!=(const error_condition& __lhs,
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:331:37: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_condition&’
+  331 |   operator!=(const error_condition& __lhs,
+      | 	     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /usr/include/c++/9/bits/locale_facets.h:48,
+		 from /usr/include/c++/9/bits/basic_ios.h:37,
+		 from /usr/include/c++/9/ios:44,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/streambuf_iterator.h:214:5: note: candidate: ‘template<class _CharT, class _Traits> bool std::operator!=(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)’
+  214 |     operator!=(const istreambuf_iterator<_CharT, _Traits>& __a,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/streambuf_iterator.h:214:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:299:5: note: candidate: ‘template<class _Tp, class _Ref, class _Ptr> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)’
+  299 |     operator!=(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:299:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:306:5: note: candidate: ‘template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)’
+  306 |     operator!=(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:306:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:2338:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator!=(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)’
+ 2338 |     operator!=(const deque<_Tp, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:2338:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::deque<_Tp, _Alloc>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/vector:67,
+		 from /usr/include/c++/9/queue:61,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_vector.h:1912:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator!=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)’
+ 1912 |     operator!=(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_vector.h:1912:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::vector<_Tp, _Alloc>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/queue:64,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_queue.h:362:5: note: candidate: ‘template<class _Tp, class _Seq> bool std::operator!=(const std::queue<_Tp, _Seq>&, const std::queue<_Tp, _Seq>&)’
+  362 |     operator!=(const queue<_Tp, _Seq>& __x, const queue<_Tp, _Seq>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_queue.h:362:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::queue<_Tp, _Seq>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/tuple:39,
+		 from /usr/include/c++/9/bits/stl_map.h:63,
+		 from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/array:257:5: note: candidate: ‘template<class _Tp, long unsigned int _Nm> bool std::operator!=(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)’
+  257 |     operator!=(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+      |     ^~~~~~~~
+/usr/include/c++/9/array:257:5: note:	template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::array<_Tp, _Nm>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/stl_map.h:63,
+		 from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/tuple:1445:5: note: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator!=(const std::tuple<_Tps ...>&, const std::tuple<_Args2 ...>&)’
+ 1445 |     operator!=(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/usr/include/c++/9/tuple:1445:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::tuple<_Tps ...>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_map.h:1479:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator!=(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)’
+ 1479 |     operator!=(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:1479:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::map<_Key, _Tp, _Compare, _Alloc>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/map:62,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_multimap.h:1143:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator!=(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)’
+ 1143 |     operator!=(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_multimap.h:1143:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:421:5: note: candidate: ‘template<class _UIntType, _UIntType __a, _UIntType __c, _UIntType __m> bool std::operator!=(const std::linear_congruential_engine<_UIntType, __a, __c, __m>&, const std::linear_congruential_engine<_UIntType, __a, __c, __m>&)’
+  421 |     operator!=(const std::linear_congruential_engine<_UIntType, __a,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:421:5: note:	template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::linear_congruential_engine<_UIntType, __a, __c, __m>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:658:5: note: candidate: ‘template<class _UIntType, long unsigned int __w, long unsigned int __n, long unsigned int __m, long unsigned int __r, _UIntType __a, long unsigned int __u, _UIntType __d, long unsigned int __s, _UIntType __b, long unsigned int __t, _UIntType __c, long unsigned int __l, _UIntType __f> bool std::operator!=(const std::mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d, __s, __b, __t, __c, __l, __f>&, const std::mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d, __s, __b, __t, __c, __l, __f>&)’
+  658 |     operator!=(const std::mersenne_twister_engine<_UIntType, __w, __n, __m,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:658:5: note:	template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d, __s, __b, __t, __c, __l, __f>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:859:5: note: candidate: ‘template<class _UIntType, long unsigned int __w, long unsigned int __s, long unsigned int __r> bool std::operator!=(const std::subtract_with_carry_engine<_UIntType, __w, __s, __r>&, const std::subtract_with_carry_engine<_UIntType, __w, __s, __r>&)’
+  859 |     operator!=(const std::subtract_with_carry_engine<_UIntType, __w,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:859:5: note:	template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::subtract_with_carry_engine<_UIntType, __w, __s, __r>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:1082:5: note: candidate: ‘template<class _RandomNumberEngine, long unsigned int __p, long unsigned int __r> bool std::operator!=(const std::discard_block_engine<_RandomNumberEngine, __p, __r>&, const std::discard_block_engine<_RandomNumberEngine, __p, __r>&)’
+ 1082 |     operator!=(const std::discard_block_engine<_RandomNumberEngine, __p,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:1082:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::discard_block_engine<_RandomNumberEngine, __p, __r>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:1279:5: note: candidate: ‘template<class _RandomNumberEngine, long unsigned int __w, class _UIntType> bool std::operator!=(const std::independent_bits_engine<_RandomNumberEngine, __w, _UIntType>&, const std::independent_bits_engine<_RandomNumberEngine, __w, _UIntType>&)’
+ 1279 |     operator!=(const std::independent_bits_engine<_RandomNumberEngine, __w,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:1279:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::independent_bits_engine<_RandomNumberEngine, __w, _UIntType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:1532:5: note: candidate: ‘template<class _RandomNumberEngine, long unsigned int __k> bool std::operator!=(const std::shuffle_order_engine<_RandomNumberEngine, __k>&, const std::shuffle_order_engine<_RandomNumberEngine, __k>&)’
+ 1532 |     operator!=(const std::shuffle_order_engine<_RandomNumberEngine,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:1532:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::shuffle_order_engine<_RandomNumberEngine, __k>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:1692:5: note: candidate: ‘template<class _IntType> bool std::operator!=(const std::uniform_int_distribution<_IntType>&, const std::uniform_int_distribution<_IntType>&)’
+ 1692 |     operator!=(const std::uniform_int_distribution<_IntType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:1692:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::uniform_int_distribution<_IntType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:1913:5: note: candidate: ‘template<class _IntType> bool std::operator!=(const std::uniform_real_distribution<_IntType>&, const std::uniform_real_distribution<_IntType>&)’
+ 1913 |     operator!=(const std::uniform_real_distribution<_IntType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:1913:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::uniform_real_distribution<_IntType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:2170:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)’
+ 2170 |     operator!=(const std::normal_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:2170:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::normal_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:2381:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::lognormal_distribution<_RealType>&, const std::lognormal_distribution<_RealType>&)’
+ 2381 |     operator!=(const std::lognormal_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:2381:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::lognormal_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:2612:6: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::gamma_distribution<_RealType>&, const std::gamma_distribution<_RealType>&)’
+ 2612 |      operator!=(const std::gamma_distribution<_RealType>& __d1,
+      |      ^~~~~~~~
+/usr/include/c++/9/bits/random.h:2612:6: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::gamma_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:2836:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::chi_squared_distribution<_RealType>&, const std::chi_squared_distribution<_RealType>&)’
+ 2836 |     operator!=(const std::chi_squared_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:2836:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::chi_squared_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:3010:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::cauchy_distribution<_RealType>&, const std::cauchy_distribution<_RealType>&)’
+ 3010 |     operator!=(const std::cauchy_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:3010:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::cauchy_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:3274:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::fisher_f_distribution<_RealType>&, const std::fisher_f_distribution<_RealType>&)’
+ 3274 |     operator!=(const std::fisher_f_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:3274:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::fisher_f_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:3496:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::student_t_distribution<_RealType>&, const std::student_t_distribution<_RealType>&)’
+ 3496 |     operator!=(const std::student_t_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:3496:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::student_t_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:3684:3: note: candidate: ‘bool std::operator!=(const std::bernoulli_distribution&, const std::bernoulli_distribution&)’
+ 3684 |   operator!=(const std::bernoulli_distribution& __d1,
+      |   ^~~~~~~~
+/usr/include/c++/9/bits/random.h:3684:49: note:   no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::bernoulli_distribution&’
+ 3684 |   operator!=(const std::bernoulli_distribution& __d1,
+      | 	     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+/usr/include/c++/9/bits/random.h:3959:5: note: candidate: ‘template<class _IntType> bool std::operator!=(const std::binomial_distribution<_IntType>&, const std::binomial_distribution<_IntType>&)’
+ 3959 |     operator!=(const std::binomial_distribution<_IntType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:3959:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::binomial_distribution<_IntType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:4138:5: note: candidate: ‘template<class _IntType> bool std::operator!=(const std::geometric_distribution<_IntType>&, const std::geometric_distribution<_IntType>&)’
+ 4138 |     operator!=(const std::geometric_distribution<_IntType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:4138:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::geometric_distribution<_IntType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:4392:5: note: candidate: ‘template<class _IntType> bool std::operator!=(const std::negative_binomial_distribution<_IntType>&, const std::negative_binomial_distribution<_IntType>&)’
+ 4392 |     operator!=(const std::negative_binomial_distribution<_IntType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:4392:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::negative_binomial_distribution<_IntType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:4618:5: note: candidate: ‘template<class _IntType> bool std::operator!=(const std::poisson_distribution<_IntType>&, const std::poisson_distribution<_IntType>&)’
+ 4618 |     operator!=(const std::poisson_distribution<_IntType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:4618:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::poisson_distribution<_IntType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:4809:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::exponential_distribution<_RealType>&, const std::exponential_distribution<_RealType>&)’
+ 4809 |     operator!=(const std::exponential_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:4809:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::exponential_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:5019:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::weibull_distribution<_RealType>&, const std::weibull_distribution<_RealType>&)’
+ 5019 |     operator!=(const std::weibull_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:5019:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::weibull_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:5229:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::extreme_value_distribution<_RealType>&, const std::extreme_value_distribution<_RealType>&)’
+ 5229 |     operator!=(const std::extreme_value_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:5229:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::extreme_value_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:5494:5: note: candidate: ‘template<class _IntType> bool std::operator!=(const std::discrete_distribution<_IntType>&, const std::discrete_distribution<_IntType>&)’
+ 5494 |     operator!=(const std::discrete_distribution<_IntType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:5494:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::discrete_distribution<_IntType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:5765:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::piecewise_constant_distribution<_RealType>&, const std::piecewise_constant_distribution<_RealType>&)’
+ 5765 |     operator!=(const std::piecewise_constant_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:5765:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::piecewise_constant_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/random:49,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.h:6038:5: note: candidate: ‘template<class _RealType> bool std::operator!=(const std::piecewise_linear_distribution<_RealType>&, const std::piecewise_linear_distribution<_RealType>&)’
+ 6038 |     operator!=(const std::piecewise_linear_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.h:6038:5: note:	 template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::piecewise_linear_distribution<_RealType>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:732:5: note: candidate: ‘template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator!=(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)’
+  732 |     operator!=(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:732:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:738:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator!=(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)’
+  738 |     operator!=(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:738:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:743:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator!=(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)’
+  743 |     operator!=(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:743:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘std::map<long unsigned int, long unsigned int>::const_iterator (std::map<long unsigned int, long unsigned int>::*)() const noexcept’ {aka ‘std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)() const’}
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+src/main.cc:339:58: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘std::map<long unsigned int, long unsigned int>::iterator (std::map<long unsigned int, long unsigned int>::*)() noexcept’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)()’}
+src/main.cc:339:58: note:   couldn’t deduce template parameter ‘_Tp’
+In file included from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/allocator.h:160:7: note: candidate: ‘bool std::operator!=(const std::allocator<std::pair<const long unsigned int, long unsigned int> >&, const std::allocator<std::pair<const long unsigned int, long unsigned int> >&)’
+  160 |       operator!=(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/allocator.h:160:18: note:   no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::allocator<std::pair<const long unsigned int, long unsigned int> >&’
+  160 |       operator!=(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      | 		 ^~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:900:5: note: candidate: ‘template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)’
+  900 |     operator!=(const __normal_iterator<_IteratorL, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:900:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:907:5: note: candidate: ‘template<class _Iterator, class _Container> bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)’
+  907 |     operator!=(const __normal_iterator<_Iterator, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:907:5: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+In file included from /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33,
+		 from /usr/include/c++/9/bits/allocator.h:46,
+		 from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/ext/new_allocator.h:173:2: note: candidate: ‘template<class _Up> bool __gnu_cxx::operator!=(const __gnu_cxx::new_allocator<std::pair<const long unsigned int, long unsigned int> >&, const __gnu_cxx::new_allocator<_Tp>&)’
+  173 |  operator!=(const new_allocator&, const new_allocator<_Up>&)
+      |  ^~~~~~~~
+/usr/include/c++/9/ext/new_allocator.h:173:2: note:   template argument deduction/substitution failed:
+src/main.cc:339:58: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘std::map<long unsigned int, long unsigned int>::const_iterator (std::map<long unsigned int, long unsigned int>::*)() const noexcept’ {aka ‘std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)() const’}
+  339 | 	    for (pr = page_table.begin; pr != page_table.end; pr++) {
+      | 							 ^~~
+src/main.cc:339:58: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘std::map<long unsigned int, long unsigned int>::iterator (std::map<long unsigned int, long unsigned int>::*)() noexcept’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)()’}
+src/main.cc:339:58: note:   couldn’t deduce template parameter ‘_Up’
+In file included from /usr/include/c++/9/map:60,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_tree.h:398:7: note: candidate: ‘bool std::operator!=(const _Self&, const _Self&)’
+  398 |       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_tree.h:398:49: note:   no known conversion for argument 2 from ‘<unresolved overloaded function type>’ to ‘const _Self&’ {aka ‘const std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> >&’}
+  398 |       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      | 				   ~~~~~~~~~~~~~^~~
+/usr/include/c++/9/bits/stl_tree.h:319:7: note: candidate: ‘bool std::operator!=(const _Self&, const _Self&)’
+  319 |       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_tree.h:319:49: note:   no known conversion for argument 2 from ‘<unresolved overloaded function type>’ to ‘const _Self&’ {aka ‘const std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >&’}
+  319 |       operator!=(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      | 				   ~~~~~~~~~~~~~^~~
+src/main.cc:351:20: error: no match for ‘operator==’ (operand types are ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} and ‘<unresolved overloaded function type>’)
+  351 | 	    if (pr == page_table.end)
+      | 		~~ ^~ ~~~~~~~~~~~~~~
+      | 		|		 |
+      | 		|		 <unresolved overloaded function type>
+      | 		std::map<long unsigned int, long unsigned int>::iterator {aka std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >}
+In file included from /usr/include/c++/9/iosfwd:40,
+		 from /usr/include/c++/9/ios:38,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/postypes.h:222:5: note: candidate: ‘template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)’
+  222 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/postypes.h:222:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::fpos<_StateT>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:64,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_pair.h:448:5: note: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)’
+  448 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_pair.h:448:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::pair<_T1, _T2>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:325:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)’
+  325 |     operator==(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:325:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::reverse_iterator<_Iterator>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:363:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)’
+  363 |     operator==(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:363:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::reverse_iterator<_Iterator>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:1139:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)’
+ 1139 |     operator==(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:1139:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::move_iterator<_IteratorL>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:1145:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)’
+ 1145 |     operator==(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:1145:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::move_iterator<_IteratorL>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/allocator.h:168:5: note: candidate: ‘template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)’
+  168 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/allocator.h:168:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::allocator<_CharT>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6141:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6141 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6141:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6149:5: note: candidate: ‘template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::__cxx11::basic_string<_CharT>&, const std::__cxx11::basic_string<_CharT>&)’
+ 6149 |     operator==(const basic_string<_CharT>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6149:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6163:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6163 |     operator==(const _CharT* __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6163:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   mismatched types ‘const _CharT*’ and ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6175:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)’
+ 6175 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6175:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/ios_base.h:46,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/system_error:292:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_code&)’
+  292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:292:32: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_code&’
+  292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:297:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_condition&)’
+  297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:297:32: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_code&’
+  297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:304:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_code&)’
+  304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:304:37: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_condition&’
+  304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:311:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_condition&)’
+  311 |   operator==(const error_condition& __lhs,
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:311:37: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_condition&’
+  311 |   operator==(const error_condition& __lhs,
+      | 	     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /usr/include/c++/9/bits/locale_facets.h:48,
+		 from /usr/include/c++/9/bits/basic_ios.h:37,
+		 from /usr/include/c++/9/ios:44,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/streambuf_iterator.h:208:5: note: candidate: ‘template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)’
+  208 |     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/streambuf_iterator.h:208:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:286:5: note: candidate: ‘template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)’
+  286 |     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:286:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:293:5: note: candidate: ‘template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)’
+  293 |     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:293:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:2312:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)’
+ 2312 |     operator==(const deque<_Tp, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:2312:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::deque<_Tp, _Alloc>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/vector:67,
+		 from /usr/include/c++/9/queue:61,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_vector.h:1888:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)’
+ 1888 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_vector.h:1888:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::vector<_Tp, _Alloc>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/queue:64,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_queue.h:338:5: note: candidate: ‘template<class _Tp, class _Seq> bool std::operator==(const std::queue<_Tp, _Seq>&, const std::queue<_Tp, _Seq>&)’
+  338 |     operator==(const queue<_Tp, _Seq>& __x, const queue<_Tp, _Seq>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_queue.h:338:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::queue<_Tp, _Seq>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/tuple:39,
+		 from /usr/include/c++/9/bits/stl_map.h:63,
+		 from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/array:252:5: note: candidate: ‘template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)’
+  252 |     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+      |     ^~~~~~~~
+/usr/include/c++/9/array:252:5: note:	template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::array<_Tp, _Nm>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/stl_map.h:63,
+		 from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/tuple:1419:5: note: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Tps ...>&, const std::tuple<_Args2 ...>&)’
+ 1419 |     operator==(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/usr/include/c++/9/tuple:1419:5: note:	 template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::tuple<_Tps ...>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_map.h:1455:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)’
+ 1455 |     operator==(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:1455:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::map<_Key, _Tp, _Compare, _Alloc>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/map:62,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_multimap.h:1119:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)’
+ 1119 |     operator==(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_multimap.h:1119:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/random:51,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.tcc:1884:5: note: candidate: ‘template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)’
+ 1884 |     operator==(const std::normal_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.tcc:1884:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::normal_distribution<_RealType>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:715:5: note: candidate: ‘template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)’
+  715 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:715:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:721:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)’
+  721 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:721:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:726:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)’
+  726 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:726:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘std::map<long unsigned int, long unsigned int>::const_iterator (std::map<long unsigned int, long unsigned int>::*)() const noexcept’ {aka ‘std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)() const’}
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+src/main.cc:351:34: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘std::map<long unsigned int, long unsigned int>::iterator (std::map<long unsigned int, long unsigned int>::*)() noexcept’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)()’}
+src/main.cc:351:34: note:   couldn’t deduce template parameter ‘_Tp’
+In file included from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/allocator.h:156:7: note: candidate: ‘bool std::operator==(const std::allocator<std::pair<const long unsigned int, long unsigned int> >&, const std::allocator<std::pair<const long unsigned int, long unsigned int> >&)’
+  156 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/allocator.h:156:18: note:   no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::allocator<std::pair<const long unsigned int, long unsigned int> >&’
+  156 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      | 		 ^~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:886:5: note: candidate: ‘template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)’
+  886 |     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:886:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:893:5: note: candidate: ‘template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)’
+  893 |     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:893:5: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+In file included from /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33,
+		 from /usr/include/c++/9/bits/allocator.h:46,
+		 from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/ext/new_allocator.h:167:2: note: candidate: ‘template<class _Up> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<std::pair<const long unsigned int, long unsigned int> >&, const __gnu_cxx::new_allocator<_Tp>&)’
+  167 |  operator==(const new_allocator&, const new_allocator<_Up>&)
+      |  ^~~~~~~~
+/usr/include/c++/9/ext/new_allocator.h:167:2: note:   template argument deduction/substitution failed:
+src/main.cc:351:34: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘std::map<long unsigned int, long unsigned int>::const_iterator (std::map<long unsigned int, long unsigned int>::*)() const noexcept’ {aka ‘std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)() const’}
+  351 | 	    if (pr == page_table.end)
+      | 				 ^~~
+src/main.cc:351:34: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘std::map<long unsigned int, long unsigned int>::iterator (std::map<long unsigned int, long unsigned int>::*)() noexcept’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)()’}
+src/main.cc:351:34: note:   couldn’t deduce template parameter ‘_Up’
+In file included from /usr/include/c++/9/map:60,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_tree.h:394:7: note: candidate: ‘bool std::operator==(const _Self&, const _Self&)’
+  394 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_tree.h:394:49: note:   no known conversion for argument 2 from ‘<unresolved overloaded function type>’ to ‘const _Self&’ {aka ‘const std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> >&’}
+  394 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      | 				   ~~~~~~~~~~~~~^~~
+/usr/include/c++/9/bits/stl_tree.h:315:7: note: candidate: ‘bool std::operator==(const _Self&, const _Self&)’
+  315 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_tree.h:315:49: note:   no known conversion for argument 2 from ‘<unresolved overloaded function type>’ to ‘const _Self&’ {aka ‘const std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >&’}
+  315 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      | 				   ~~~~~~~~~~~~~^~~
+src/main.cc:360:24: error: ‘class std::map<long unsigned int, long unsigned int>’ has no member named ‘erse’; did you mean ‘erase’?
+  360 | 	    page_table.erse(pr);
+      | 		       ^~~~
+      | 		       erase
+src/main.cc:361:24: error: ‘class std::map<long unsigned int, long unsigned int>’ has no member named ‘isert’; did you mean ‘insert’?
+  361 | 	    page_table.isert(make_pair(vpage, mapped_ppage));
+      | 		       ^~~~~
+      | 		       insert
+src/main.cc:430:24: error: ‘class std::map<long unsigned int, long unsigned int>’ has no member named ‘inset’; did you mean ‘insert’?
+  430 | 	    page_table.inset(make_pair(vpage, random_ppage));
+      | 		       ^~~~~
+      | 		       insert
+src/main.cc:457:12: error: no match for ‘operator==’ (operand types are ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} and ‘<unresolved overloaded function type>’)
+  457 |     if (pr == page_table.end)
+      | 	~~ ^~ ~~~~~~~~~~~~~~
+      | 	|		 |
+      | 	|		 <unresolved overloaded function type>
+      | 	std::map<long unsigned int, long unsigned int>::iterator {aka std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >}
+In file included from /usr/include/c++/9/iosfwd:40,
+		 from /usr/include/c++/9/ios:38,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/postypes.h:222:5: note: candidate: ‘template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)’
+  222 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/postypes.h:222:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::fpos<_StateT>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:64,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_pair.h:448:5: note: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)’
+  448 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_pair.h:448:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::pair<_T1, _T2>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:325:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)’
+  325 |     operator==(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:325:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::reverse_iterator<_Iterator>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:363:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)’
+  363 |     operator==(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:363:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::reverse_iterator<_Iterator>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:1139:5: note: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)’
+ 1139 |     operator==(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:1139:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::move_iterator<_IteratorL>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:1145:5: note: candidate: ‘template<class _Iterator> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)’
+ 1145 |     operator==(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:1145:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::move_iterator<_IteratorL>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/allocator.h:168:5: note: candidate: ‘template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)’
+  168 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/allocator.h:168:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::allocator<_CharT>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6141:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6141 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6141:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6149:5: note: candidate: ‘template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::__cxx11::basic_string<_CharT>&, const std::__cxx11::basic_string<_CharT>&)’
+ 6149 |     operator==(const basic_string<_CharT>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6149:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6163:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6163 |     operator==(const _CharT* __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6163:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   mismatched types ‘const _CharT*’ and ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/string:55,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/basic_string.h:6175:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)’
+ 6175 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/basic_string.h:6175:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/ios_base.h:46,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/system_error:292:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_code&)’
+  292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:292:32: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_code&’
+  292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:297:3: note: candidate: ‘bool std::operator==(const std::error_code&, const std::error_condition&)’
+  297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:297:32: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_code&’
+  297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:304:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_code&)’
+  304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:304:37: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_condition&’
+  304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+      | 	     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9/system_error:311:3: note: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_condition&)’
+  311 |   operator==(const error_condition& __lhs,
+      |   ^~~~~~~~
+/usr/include/c++/9/system_error:311:37: note:	no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::error_condition&’
+  311 |   operator==(const error_condition& __lhs,
+      | 	     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /usr/include/c++/9/bits/locale_facets.h:48,
+		 from /usr/include/c++/9/bits/basic_ios.h:37,
+		 from /usr/include/c++/9/ios:44,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/streambuf_iterator.h:208:5: note: candidate: ‘template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)’
+  208 |     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/streambuf_iterator.h:208:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::istreambuf_iterator<_CharT, _Traits>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:286:5: note: candidate: ‘template<class _Tp, class _Ref, class _Ptr> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)’
+  286 |     operator==(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:286:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:293:5: note: candidate: ‘template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator==(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)’
+  293 |     operator==(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:293:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/deque:67,
+		 from /usr/include/c++/9/queue:60,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_deque.h:2312:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)’
+ 2312 |     operator==(const deque<_Tp, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_deque.h:2312:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::deque<_Tp, _Alloc>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/vector:67,
+		 from /usr/include/c++/9/queue:61,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_vector.h:1888:5: note: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)’
+ 1888 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_vector.h:1888:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::vector<_Tp, _Alloc>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/queue:64,
+		 from inc/champsim.h:16,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_queue.h:338:5: note: candidate: ‘template<class _Tp, class _Seq> bool std::operator==(const std::queue<_Tp, _Seq>&, const std::queue<_Tp, _Seq>&)’
+  338 |     operator==(const queue<_Tp, _Seq>& __x, const queue<_Tp, _Seq>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_queue.h:338:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::queue<_Tp, _Seq>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/tuple:39,
+		 from /usr/include/c++/9/bits/stl_map.h:63,
+		 from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/array:252:5: note: candidate: ‘template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)’
+  252 |     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+      |     ^~~~~~~~
+/usr/include/c++/9/array:252:5: note:	template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::array<_Tp, _Nm>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_map.h:63,
+		 from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/tuple:1419:5: note: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Tps ...>&, const std::tuple<_Args2 ...>&)’
+ 1419 |     operator==(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/usr/include/c++/9/tuple:1419:5: note:	 template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::tuple<_Tps ...>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/map:61,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_map.h:1455:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)’
+ 1455 |     operator==(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_map.h:1455:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::map<_Key, _Tp, _Compare, _Alloc>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/map:62,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_multimap.h:1119:5: note: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)’
+ 1119 |     operator==(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_multimap.h:1119:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/random:51,
+		 from inc/champsim.h:18,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/random.tcc:1884:5: note: candidate: ‘template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)’
+ 1884 |     operator==(const std::normal_distribution<_RealType>& __d1,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/random.tcc:1884:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::normal_distribution<_RealType>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:715:5: note: candidate: ‘template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)’
+  715 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:715:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:721:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)’
+  721 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:721:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const std::unique_ptr<_Tp, _Dp>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/locale_conv.h:41,
+		 from /usr/include/c++/9/locale:43,
+		 from /usr/include/c++/9/iomanip:43,
+		 from inc/champsim.h:20,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/unique_ptr.h:726:5: note: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)’
+  726 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/unique_ptr.h:726:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘std::map<long unsigned int, long unsigned int>::const_iterator (std::map<long unsigned int, long unsigned int>::*)() const noexcept’ {aka ‘std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)() const’}
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+src/main.cc:457:26: note:   mismatched types ‘const std::unique_ptr<_Tp, _Dp>’ and ‘std::map<long unsigned int, long unsigned int>::iterator (std::map<long unsigned int, long unsigned int>::*)() noexcept’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)()’}
+src/main.cc:457:26: note:   couldn’t deduce template parameter ‘_Tp’
+In file included from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/allocator.h:156:7: note: candidate: ‘bool std::operator==(const std::allocator<std::pair<const long unsigned int, long unsigned int> >&, const std::allocator<std::pair<const long unsigned int, long unsigned int> >&)’
+  156 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/allocator.h:156:18: note:   no known conversion for argument 1 from ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} to ‘const std::allocator<std::pair<const long unsigned int, long unsigned int> >&’
+  156 |       operator==(const allocator&, const allocator&) _GLIBCXX_NOTHROW
+      | 		 ^~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:886:5: note: candidate: ‘template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)’
+  886 |     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:886:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/c++/9/bits/stl_algobase.h:67,
+		 from /usr/include/c++/9/bits/char_traits.h:39,
+		 from /usr/include/c++/9/ios:40,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_iterator.h:893:5: note: candidate: ‘template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)’
+  893 |     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9/bits/stl_iterator.h:893:5: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   ‘std::map<long unsigned int, long unsigned int>::iterator’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >’} is not derived from ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+In file included from /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:33,
+		 from /usr/include/c++/9/bits/allocator.h:46,
+		 from /usr/include/c++/9/string:41,
+		 from /usr/include/c++/9/bits/locale_classes.h:40,
+		 from /usr/include/c++/9/bits/ios_base.h:41,
+		 from /usr/include/c++/9/ios:42,
+		 from /usr/include/c++/9/ostream:38,
+		 from /usr/include/c++/9/iostream:39,
+		 from inc/champsim.h:15,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/ext/new_allocator.h:167:2: note: candidate: ‘template<class _Up> bool __gnu_cxx::operator==(const __gnu_cxx::new_allocator<std::pair<const long unsigned int, long unsigned int> >&, const __gnu_cxx::new_allocator<_Tp>&)’
+  167 |  operator==(const new_allocator&, const new_allocator<_Up>&)
+      |  ^~~~~~~~
+/usr/include/c++/9/ext/new_allocator.h:167:2: note:   template argument deduction/substitution failed:
+src/main.cc:457:26: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘std::map<long unsigned int, long unsigned int>::const_iterator (std::map<long unsigned int, long unsigned int>::*)() const noexcept’ {aka ‘std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)() const’}
+  457 |     if (pr == page_table.end)
+      | 			 ^~~
+src/main.cc:457:26: note:   mismatched types ‘const __gnu_cxx::new_allocator<_Tp>’ and ‘std::map<long unsigned int, long unsigned int>::iterator (std::map<long unsigned int, long unsigned int>::*)() noexcept’ {aka ‘std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> > (std::map<long unsigned int, long unsigned int>::*)()’}
+src/main.cc:457:26: note:   couldn’t deduce template parameter ‘_Up’
+In file included from /usr/include/c++/9/map:60,
+		 from inc/champsim.h:17,
+		 from inc/memory_class.h:4,
+		 from inc/cache.h:4,
+		 from inc/ooo_cpu.h:4,
+		 from src/main.cc:4:
+/usr/include/c++/9/bits/stl_tree.h:394:7: note: candidate: ‘bool std::operator==(const _Self&, const _Self&)’
+  394 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_tree.h:394:49: note:   no known conversion for argument 2 from ‘<unresolved overloaded function type>’ to ‘const _Self&’ {aka ‘const std::_Rb_tree_const_iterator<std::pair<const long unsigned int, long unsigned int> >&’}
+  394 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      | 				   ~~~~~~~~~~~~~^~~
+/usr/include/c++/9/bits/stl_tree.h:315:7: note: candidate: ‘bool std::operator==(const _Self&, const _Self&)’
+  315 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      |       ^~~~~~~~
+/usr/include/c++/9/bits/stl_tree.h:315:49: note:   no known conversion for argument 2 from ‘<unresolved overloaded function type>’ to ‘const _Self&’ {aka ‘const std::_Rb_tree_iterator<std::pair<const long unsigned int, long unsigned int> >&’}
+  315 |       operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+      | 				   ~~~~~~~~~~~~~^~~
+make: *** [Makefile:52: obj/src/main.o] Error 1
+
+ChampSim build FAILED!
+
+rajesh@ubuntu:~/work/CAWS/fixes/ChampSim-CAWS$ exitild_champsim.sh bimodal no no no no lru 1
+exit
+
+Script done on 2020-12-11 08:33:52-08:00 [COMMAND_EXIT_CODE="1"]

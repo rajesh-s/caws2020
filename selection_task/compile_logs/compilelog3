@@ -1,0 +1,94 @@
+Script started on 2020-12-11 08:57:24-08:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="203" LINES="49"]
+rajesh@ubuntu:~/work/CAWS/fixes/ChampSim-CAWS$ ./build_champsim.sh bimodal no no no no lru 1
+Building single-core ChampSim...
+
+rm -f -r obj
+Generating dependencies for src/block.cc...
+Compiling src/block.cc...
+Generating dependencies for src/dram_controller.cc...
+Compiling src/dram_controller.cc...
+Generating dependencies for src/cache.cc...
+Compiling src/cache.cc...
+src/cache.cc: In member function ‘void CACHE::handle_fill()’:
+src/cache.cc:129:4: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  129 |    if (cache_type == IS_L1I)
+      |    ^~
+src/cache.cc:131:6: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  131 |      if (cache_type == IS_L1D)
+      |      ^~
+src/cache.cc: In member function ‘void CACHE::handle_writeback()’:
+src/cache.cc:459:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  459 |     if (cache_type == IS_L1I)
+      |     ^~
+src/cache.cc:461:21: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  461 | 		    if (cache_type == IS_L1D)
+      | 		    ^~
+src/cache.cc: In member function ‘void CACHE::handle_read()’:
+src/cache.cc:530:7: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  530 |       if (read_cpu == NUM_CPUS)
+      |       ^~
+src/cache.cc:534:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  534 | 	if ((RQ.entry[RQ.head].event_cycle <= current_core_cycle[read_cpu]) && (RQ.occupancy > 0)) {
+      | 	^~
+src/cache.cc: In member function ‘void CACHE::handle_prefetch()’:
+src/cache.cc:833:7: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  833 |       if (prefetch_cpu == NUM_CPUS)
+      |       ^~
+src/cache.cc:837:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  837 | 	if ((PQ.entry[PQ.head].event_cycle <= current_core_cycle[prefetch_cpu]) && (PQ.occupancy > 0)) {
+      | 	^~
+Generating dependencies for src/uncore.cc...
+Compiling src/uncore.cc...
+Generating dependencies for src/ooo_cpu.cc...
+Compiling src/ooo_cpu.cc...
+src/ooo_cpu.cc: In member function ‘void O3_CPU::add_load_queue(uint32_t, uint32_t)’:
+src/ooo_cpu.cc:1240:17: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+ 1240 | 		if (LQ.entry[lq_index].producer_id != UINT64_MAX)
+      | 		^~
+src/ooo_cpu.cc:1243:21: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+ 1243 | 		    mem_RAW_dependency(i, rob_index, data_index, lq_index);
+      | 		    ^~~~~~~~~~~~~~~~~~
+src/ooo_cpu.cc:1248:17: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+ 1248 | 		if (LQ.entry[lq_index].producer_id != UINT64_MAX)
+      | 		^~
+src/ooo_cpu.cc:1251:21: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+ 1251 | 		    mem_RAW_dependency(i, rob_index, data_index, lq_index);
+      | 		    ^~~~~~~~~~~~~~~~~~
+src/ooo_cpu.cc:1254:17: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+ 1254 | 		if (LQ.entry[lq_index].producer_id != UINT64_MAX)
+      | 		^~
+src/ooo_cpu.cc:1257:21: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+ 1257 | 		    mem_RAW_dependency(i, rob_index, data_index, lq_index);
+      | 		    ^~~~~~~~~~~~~~~~~~
+src/ooo_cpu.cc: In member function ‘void O3_CPU::complete_instr_fetch(PACKET_QUEUE*, uint8_t)’:
+src/ooo_cpu.cc:1858:11: warning: unused variable ‘instruction_physical_address’ [-Wunused-variable]
+ 1858 |  uint64_t instruction_physical_address = (queue->entry[index].instruction_pa << LOG2_PAGE_SIZE) | (complete_ip & ((1 << LOG2_PAGE_SIZE) - 1));
+      | 	  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Generating dependencies for src/main.cc...
+Compiling src/main.cc...
+In file included from /usr/include/getopt.h:24,
+		 from src/main.cc:3:
+/usr/include/features.h:187:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+  187 | # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+      |   ^~~~~~~
+src/main.cc: In function ‘uint64_t va_to_pa(uint32_t, uint64_t, uint64_t, uint64_t, uint8_t)’:
+src/main.cc:360:24: error: ‘class std::map<long unsigned int, long unsigned int>’ has no member named ‘erse’; did you mean ‘erase’?
+  360 | 	    page_table.erse(pr);
+      | 		       ^~~~
+      | 		       erase
+src/main.cc:361:24: error: ‘class std::map<long unsigned int, long unsigned int>’ has no member named ‘isert’; did you mean ‘insert’?
+  361 | 	    page_table.isert(make_pair(vpage, mapped_ppage));
+      | 		       ^~~~~
+      | 		       insert
+src/main.cc:430:24: error: ‘class std::map<long unsigned int, long unsigned int>’ has no member named ‘inset’; did you mean ‘insert’?
+  430 | 	    page_table.inset(make_pair(vpage, random_ppage));
+      | 		       ^~~~~
+      | 		       insert
+make: *** [Makefile:52: obj/src/main.o] Error 1
+
+ChampSim build FAILED!
+
+rajesh@ubuntu:~/work/CAWS/fixes/ChampSim-CAWS$ exit
+exit
+
+Script done on 2020-12-11 08:58:30-08:00 [COMMAND_EXIT_CODE="1"]
