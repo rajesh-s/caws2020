@@ -2,6 +2,8 @@
   <h1 align="center"> ChampSim </h1>
 </p>
 
+Forked from [here](https://github.com/vishalgupta97/ChampSim-CAWS)
+
 # Compile
 
 ChampSim takes five parameters: Branch predictor, L1D prefetcher, L2C prefetcher, LLC replacement policy, and the number of cores. 
