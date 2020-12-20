@@ -8,24 +8,24 @@ LLC sets: 2048
 LLC ways: 16
 Off-chip DRAM Size: 4096 MB Channels: 1 Width: 64-bit Data Rate: 3200 MT/s
 
-CPU 0 runs /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+CPU 0 runs /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
 CPU 0 Bimodal branch predictor
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
 
-Warmup complete CPU 0 instructions: 1000001 cycles: 419132 (Simulation time: 0 hr 0 min 3 sec) 
+Warmup complete CPU 0 instructions: 1000001 cycles: 419132 (Simulation time: 0 hr 0 min 2 sec) 
 
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-Heartbeat CPU 0 instructions: 10000000 cycles: 8422500 heartbeat IPC: 1.1873 cumulative IPC: 1.12453 (Simulation time: 0 hr 0 min 18 sec) 
-*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/CAWS/fixes/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
-Finished CPU 0 instructions: 10000000 cycles: 8891568 cumulative IPC: 1.12466 (Simulation time: 0 hr 0 min 20 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+Heartbeat CPU 0 instructions: 10000000 cycles: 8422500 heartbeat IPC: 1.1873 cumulative IPC: 1.12453 (Simulation time: 0 hr 0 min 22 sec) 
+*** Reached end of trace for Core: 0 Repeating trace: /home/rajesh/work/caws2020/selection_task/ChampSim-CAWS/dpc3_traces/hello_world.trace.xz
+Finished CPU 0 instructions: 10000000 cycles: 8891568 cumulative IPC: 1.12466 (Simulation time: 0 hr 0 min 24 sec) 
 
 ChampSim completed all CPUs
 
