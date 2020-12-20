@@ -64,7 +64,7 @@ PS: You should use Linux based OS. We will not entertain any query related to th
 
 == Build clean! ==
 
-## Trace generation
+## Using ChampSim and Trace generation
 
 You can first test your pin installation by 
 
@@ -79,9 +79,12 @@ cd ../../../
 
 ChampSim tracer
 
-```
+```bash
+./build_champsim.sh bimodal no no no no lru 1
+#Use chmod +x wherever necessary after cloning repo
 ./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -o hello.trace -- ./hello
 xz hello_world.trace
+cp *.trace.xz ../dpc3_traces
 ./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 10 hello_world.trace.xz
 ```
 
