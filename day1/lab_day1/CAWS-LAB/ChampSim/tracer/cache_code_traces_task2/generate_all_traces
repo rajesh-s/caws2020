@@ -1,0 +1,12 @@
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_4K -- ./cache_code_traces_task2/cache_access_code 12
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_8K -- ./cache_code_traces_task2/cache_access_code 13
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_16K -- ./cache_code_traces_task2/cache_access_code 14
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_32K -- ./cache_code_traces_task2/cache_access_code 15
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_64K -- ./cache_code_traces_task2/cache_access_code 16
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_128K -- ./cache_code_traces_task2/cache_access_code 17
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_256K -- ./cache_code_traces_task2/cache_access_code 18
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_512K -- ./cache_code_traces_task2/cache_access_code 19
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_1M -- ./cache_code_traces_task2/cache_access_code 20
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_2M -- ./cache_code_traces_task2/cache_access_code 21
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_4M -- ./cache_code_traces_task2/cache_access_code 22
+./PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -s 10000000 -t 2000000 -o cache_access_8M -- ./cache_code_traces_task2/cache_access_code 23
