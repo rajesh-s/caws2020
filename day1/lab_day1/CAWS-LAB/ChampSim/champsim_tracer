@@ -1,0 +1,12 @@
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_128K.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_16K.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_1M.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_256K.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_2M.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_32K.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_4K.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_4M.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_512K.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_64K.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_8K.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_access_8M.xz

@@ -1,0 +1,9 @@
+gcc cache-code.c -o cache_access_code
+source cache_code_traces_task2/generate_all_traces 
+xz * 
+cp ~/work/caws2020/lab_day1/CAWS-LAB/ChampSim/tracer/cache_code_traces_task2/generated_traces dpc3_traces -r 
+./build_champsim.sh bimodal no ip_stride no no lru 1
+source champsim_tracer_stride 
+cd results_1M/
+grep "CPU 0 cumulative IPC" ./* -r 
+
