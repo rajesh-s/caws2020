@@ -1,0 +1,22 @@
+# Measuring Baseline IPC
+cd ../../
+./build_champsim.sh bimodal no no no no lru 1
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_miss_random.trace.xz
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cacheoccupy_stride_stream.trace.xz
+
+# Varying timing parameters
+cp ./inc/dram_controller.h.4xRP ./inc/dram_controller.h
+cp ./dpc3_traces/cacheoccupy_stride_stream.trace.xz ./dpc3_traces/cacheoccupy_stride_stream_4xRP.trace.xz
+./build_champsim.sh bimodal no no no no lru 1
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cacheoccupy_stride_stream_4xRP.trace.xz
+cp ./inc/dram_controller.h.4xRCD ./inc/dram_controller.h
+cp ./dpc3_traces/cacheoccupy_stride_stream.trace.xz ./dpc3_traces/cacheoccupy_stride_stream_4xRCD.trace.xz
+./build_champsim.sh bimodal no no no no lru 1
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cacheoccupy_stride_stream_4xRCD.trace.xz
+cp ./inc/dram_controller.h.4xCAS ./inc/dram_controller.h
+cp ./dpc3_traces/cacheoccupy_stride_stream.trace.xz ./dpc3_traces/cacheoccupy_stride_stream_4xCAS.trace.xz
+./build_champsim.sh bimodal no no no no lru 1
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cacheoccupy_stride_stream_4xCAS.trace.xz
+
+
+

@@ -1,0 +1,8 @@
+cd ../../
+cp ./dpc3_traces/cacheoccupy_stride_stream.trace.xz ./dpc3_traces/cacheoccupy_stride_stream_allrowbuffermiss.trace.xz
+./build_champsim.sh bimodal no no no no lru 1
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cacheoccupy_stride_stream_allrowbuffermiss.trace.xz
+cp ./dpc3_traces/cache_miss_random.trace.xz ./dpc3_traces/cache_miss_random_allrowbuffermiss.trace.xz
+./build_champsim.sh bimodal no no no no lru 1
+./run_champsim.sh bimodal-no-no-no-no-lru-1core 1 1 cache_miss_random_allrowbuffermiss.trace.xz
+

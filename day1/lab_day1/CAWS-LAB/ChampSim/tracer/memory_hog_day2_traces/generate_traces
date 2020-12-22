@@ -1,0 +1,3 @@
+../PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -o cache_miss_random.trace -- ./cache_miss_random
+../PIN/pin-3.17-98314-g0c048d619-gcc-linux/pin -t obj-intel64/champsim_tracer.so -o cacheoccupy_stride_stream.trace -- ./cacheoccupy_stride_stream
+
