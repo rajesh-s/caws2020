@@ -91,7 +91,7 @@ You need to do the following steps:-
 1. Clone this GitHub repository: https://github.com/vishalgupta97/CAWS-LAB.git
 2. Go through cache-code.c in the repository.
 3. Generate traces using cache-code.c to access different array sizes (Input parameter to the program: log2 of the array size to be accessed, 4KB: 12, 8KB: 13, and so on). Generate traces to access array sizes starting from 4KB to 8MB with different names (use -o parameter with the Pintool to specify the output trace name). Skip the first 10 million instructions and generate traces for the next 2 million instructions. Use -ifeellucky parameter with the Pintool. Compress the trace files to .gz format.
-    - Created traces [here](./lab_day1/CAWS-LAB/ChampSim/tracer/cache_code_traces)
+    - Created traces [here](./day1/lab_day1/CAWS-LAB/ChampSim/tracer/cache_code_traces)
     - -s 10000000 -t 2000000
     - Compile with gcc cache-code.c -o cache_access. Run it for all configurations using the runtime parameter
 4. Build ChampSim with LRU replacement policy and no prefetchers.
@@ -116,7 +116,7 @@ You need to do the following steps:-
 
 ##### 4.1.2.1. Results and my observations
 
-- My progress [here](./lab_day1/CAWS-LAB/ChampSim/tracer/cache_code_traces_task2)
+- My progress [here](./day1/lab_day1/CAWS-LAB/ChampSim/tracer/cache_code_traces_task2)
 - In task 1 there is a sequential dependency (access+j). But in task 2 there is not, so because we are using O3 (concurrent to L1-D cache) we don't see a drop on using a different access pattern
 - Prefetcher able to hide latency L1/L2 cache. But if it is a miss in LLC there is a drop
 
@@ -128,7 +128,7 @@ You need to do the following steps:-
 gcc cache-code.c -o cache_access_code
 source cache_code_traces_task2/generate_all_traces 
 xz * 
-cp ~/work/caws2020/lab_day1/CAWS-LAB/ChampSim/tracer/cache_code_traces_task2/generated_traces dpc3_traces -r 
+cp ~/work/caws2020/day1/lab_day1/CAWS-LAB/ChampSim/tracer/cache_code_traces_task2/generated_traces dpc3_traces -r 
 ./build_champsim.sh bimodal no ip_stride no no lru 1
 source champsim_tracer_stride 
 cd results_1M/
