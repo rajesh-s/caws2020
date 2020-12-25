@@ -24,10 +24,10 @@ The organizers are planning on admitting approximately 100 students for the wint
 ## Things I learnt at the Winter School
 
 - [Day 1](./day1/README.md)
-  - [Day 1 Lab](./day/lab_day1/)
+  - [Day 1 Lab](./day1/lab_day1/)
 - [Day 2](./day2/README.md)
-  - [Day 2 Lab](./day/lab_day2/)
+  - [Day 2 Lab](./day2/lab_day2/)
 - [Day 3](./day3/README.md)
-  - [Day 3 Lab](./day/lab_day3/)
+  - [Day 3 Lab](./day3/lab_day3/)
 - [Day 4](./day4/README.md)
-  - [Day 4 Lab](./day/lab_day4/)
+  - [Day 4 Lab](./day4/lab_day4/)
