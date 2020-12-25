@@ -5,7 +5,6 @@
 - [About](#about)
 - [Selection tasks](#selection-tasks)
 - [Things I learnt at the Winter School](#things-i-learnt-at-the-winter-school)
-  - [Insights from the panel discussion](#insights-from-the-panel-discussion)
 
 ## About
 
@@ -32,8 +31,3 @@ The organizers are planning on admitting approximately 100 students for the wint
   - [Day 3 Lab](./day/lab_day3/)
 - [Day 4](./day4/README.md)
   - [Day 4 Lab](./day/lab_day4/)
-
-### Insights from the panel discussion
-
-- What it takes to do Comp Arch/Systems research?
-  - Interest across different layers (OS, Memory Systems, Algorithms, Performance). Jack of all trades, master of a few. Develop a method in madness (when branching out to different areas) identify how different areas connect to your core interest
