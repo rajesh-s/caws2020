@@ -15,6 +15,7 @@ Applications for participation are invited from students (undergraduates and ear
 The organizers are planning on admitting approximately 100 students for the winter school. The selection process is going to be extremely competitive, so please apply soon!
 
 [Schedule](./caws_schedule.pdf)
+[Certificate](./CAWS2020.pdf)
 
 ## Selection tasks
 
